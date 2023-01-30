@@ -18,6 +18,8 @@ YDLidar SDK is the software development kit designed for all YDLIDAR products. I
 
 YDLidar SDK consists of YDLidar SDK communication protocol, YDLidar SDK core, YDLidar SDK API, Linux/windows samples, and Python demo.
 
+This SDK also supports YDLidar X3.
+
 ### Prerequisites
 * Linux
 * Windows 7/10, Visual Studio 2015/2017
