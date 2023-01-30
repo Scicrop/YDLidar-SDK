@@ -21,14 +21,15 @@ port = "/dev/ydlidar";
 for key, value in ports.items():
     port = value;
     
+print(port)
 laser = ydlidar.CYdLidar();
 laser.setlidaropt(ydlidar.LidarPropSerialPort, port);
-laser.setlidaropt(ydlidar.LidarPropSerialBaudrate, 230400)
+laser.setlidaropt(ydlidar.LidarPropSerialBaudrate, 115200)
 laser.setlidaropt(ydlidar.LidarPropLidarType, ydlidar.TYPE_TRIANGLE);
 laser.setlidaropt(ydlidar.LidarPropDeviceType, ydlidar.YDLIDAR_TYPE_SERIAL);
 laser.setlidaropt(ydlidar.LidarPropScanFrequency, 10.0);
 laser.setlidaropt(ydlidar.LidarPropSampleRate, 9);
-laser.setlidaropt(ydlidar.LidarPropSingleChannel, False);
+laser.setlidaropt(ydlidar.LidarPropSingleChannel, True);
 scan = ydlidar.LaserScan()
 
 def animate(num):
@@ -42,10 +43,12 @@ def animate(num):
             angle.append(point.angle);
             ran.append(point.range);
             intensity.append(point.intensity);
+            print(point.range, point.angle)
         lidar_polar.clear()
         lidar_polar.scatter(angle, ran, c=intensity, cmap='hsv', alpha=0.95)
 
 ret = laser.initialize();
+print(ret)
 if ret:
     ret = laser.turnOn();
     if ret:

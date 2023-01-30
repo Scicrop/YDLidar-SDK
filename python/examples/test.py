@@ -9,12 +9,12 @@ for key, value in ports.items():
     port = value;
 laser = ydlidar.CYdLidar();
 laser.setlidaropt(ydlidar.LidarPropSerialPort, port);
-laser.setlidaropt(ydlidar.LidarPropSerialBaudrate, 230400);
+laser.setlidaropt(ydlidar.LidarPropSerialBaudrate, 115200);
 laser.setlidaropt(ydlidar.LidarPropLidarType, ydlidar.TYPE_TRIANGLE);
 laser.setlidaropt(ydlidar.LidarPropDeviceType, ydlidar.YDLIDAR_TYPE_SERIAL);
 laser.setlidaropt(ydlidar.LidarPropScanFrequency, 10.0);
 laser.setlidaropt(ydlidar.LidarPropSampleRate, 9);
-laser.setlidaropt(ydlidar.LidarPropSingleChannel, False);
+laser.setlidaropt(ydlidar.LidarPropSingleChannel, True);
 
 ret = laser.initialize();
 if ret:
